@@ -5,12 +5,12 @@
   "main": "background.js",
   "scripts": {
     "start": "web-ext run -s src",
-    "package": "web-ext build -s src",
+    "package": "web-ext build -s src --overwrite-dest",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "web-ext": "^2.4.0"
+    "web-ext": "^4.0.0"
   }
 }
