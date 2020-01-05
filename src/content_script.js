@@ -4,7 +4,8 @@ urls = [
     'aes.js', // https://cdn.rawgit.com/ricmoo/aes-js/master/index.js
     'sha.js', // https://cdn.rawgit.com/Caligatio/jsSHA/master/src/sha.js
     'msl_client.js',
-    'netflix_max_bitrate.js'
+    'netflix_max_bitrate.js',
+    'get_manifest.js'
 ]
 
 // very messy workaround for accessing browser's storage outside of background / content scripts
