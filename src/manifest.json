@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Netflix 1080p",
   "description": "Forces 1080p playback for Netflix in Firefox. Based on vladikoff/netflix-1080p-firefox.",
-  "version": "1.10",
+  "version": "1.11",
   "author": "truedread and vladikoff",
   "content_scripts": [{
     "matches": [
@@ -18,6 +18,10 @@
   "background": {
     "scripts": ["background.js"]
   },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
   "web_accessible_resources": [
     "get_manifest.js",
     "msl_client.js",
@@ -25,11 +29,17 @@
     "cadmium-playercore-1080p.js"
   ],
   "permissions": [
+    "storage",
     "webRequest",
     "webRequestBlocking",
     "*://assets.nflxext.com/*/ffe/player/html/*",
     "*://www.assets.nflxext.com/*/ffe/player/html/*",
     "*://netflix.com/*",
     "*://www.netflix.com/*"
-  ]
+  ],
+  "applications": {
+    "gecko": {
+      "id": "{f18f0257-10ad-4ff7-b51e-6895edeccfc8}"
+    }
+  }
 }
