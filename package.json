@@ -5,12 +5,16 @@
   "main": "background.js",
   "scripts": {
     "start": "web-ext run -s src",
-    "package": "web-ext build -s src --overwrite-dest",
+    "build": "shx mkdir -p dist && shx cp -r src/* dist/ && terser -c --keep-classnames --keep-fnames --no-rename src/cadmium-playercore-1080p.js -o dist/cadmium-playercore-1080p.js",
+    "clean": "shx rm -rf dist/",
+    "package": "npm run build && web-ext build -s dist --overwrite-dest",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "web-ext": "^4.0.0"
+    "shx": "^0.3.2",
+    "terser": "^4.7.0",
+    "web-ext": "^4.2.0"
   }
 }
