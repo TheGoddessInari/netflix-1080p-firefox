@@ -13,7 +13,7 @@
     ],
     "all_frames": true,
     "js": ["content_script.js"],
-    "run_at": "document_start"
+    "run_at": "document_end"
   }],
   "background": {
     "scripts": ["background.js"]
