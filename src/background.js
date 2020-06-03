@@ -23,6 +23,10 @@ browser.webRequest.onBeforeRequest.addListener(
             text = text.replace(`/Intel Mac OS X/.test(a)?"NFCDCH-MC-"`, `/Intel Mac OS X/.test(a)?"NFCDIE-04-"`);
             // Add Audio Format Description
             text = text.replace(`displayName:a.ZX`, `displayName:a.ZX+" - "+a.channelsFormat`);
+            // Add async to this function so we can await in the next part.
+            // text = text.replace(`X6a(c++,a,b).then(function(d)`, `X6a(c++,a,b).then(async function(d)`);
+            // Get manifest - await
+            // text = text.replace(`if(void 0===d.result)`, `if(/watch/.test(window.location.pathname)&&d.result.from.startsWith("nq_cadmium_pbo_manifests")&&!manifestOverridden){console.log("Manifest locked to Edge (or not available in 1080p)"),console.log("Getting Edge manifest");var manifest=await getManifest("NFCDIE-03-"+generateEsn());console.log("Acquisition successful, commence playback"),manifest.playbackContextId=d.result.result.playbackContextId,d.result.result=manifest,manifestOverridden=true}if(void 0===d.result)`)
           }
           filter.write(encoder.encode(text));
           filter.close();
