@@ -26,7 +26,7 @@
     "get_manifest.js",
     "msl_client.js",
     "netflix_max_bitrate.js",
-    "cadmium-playercore-1080p.js"
+    "cadmium-playercore.js"
   ],
   "permissions": [
     "storage",
