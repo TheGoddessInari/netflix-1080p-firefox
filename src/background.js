@@ -10,7 +10,7 @@ browser.webRequest.onBeforeRequest.addListener(
           // Version 6.0023.327.011 from https://assets.nflxext.com/en_us/ffe/player/html/cadmium-playercore-6.0023.327.011.js
           if (text.includes(`this.version="6.0023.327.011";`)) {
             // Add global variable for overriding manifest
-            text = `var manifestOverridden=false;${text}`;
+            // text = `var manifestOverridden=false;${text}`;
             // Unconditionally push 1080p formats
             text = text.replace(`b.KH=[y.V.gI,y.V.CC,y.V.GQ,y.V.HQ,y.V.cJ,y.V.dJ]`, `b.KH=[y.V.gI,y.V.CC,y.V.GQ,y.V.HQ,y.V.cJ,y.V.dJ,y.V.JQ, y.V.IQ, y.V.eJ]`);
             // Use our profile list
