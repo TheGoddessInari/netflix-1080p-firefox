@@ -18,9 +18,9 @@ browser.webRequest.onBeforeRequest.addListener(
             // Re-enable Ctrl-Shift-S menu
             text = text.replace(`this.aX.pca&&this.toggle()`, `this.toggle();`);
             // Replace w/ Windows Edge esnPrefix
-            text = text.replace(`/Windows NT/.test(a)?"NFCDCH-02-"`, `/Windows NT/.test(a)?"NFCDIE-03-"`);
+            // text = text.replace(`/Windows NT/.test(a)?"NFCDCH-02-"`, `/Windows NT/.test(a)?"NFCDIE-03-"`);
             // Replace w/ MacOS Edge esnPrefix
-            text = text.replace(`/Intel Mac OS X/.test(a)?"NFCDCH-MC-"`, `/Intel Mac OS X/.test(a)?"NFCDIE-04-"`);
+            // text = text.replace(`/Intel Mac OS X/.test(a)?"NFCDCH-MC-"`, `/Intel Mac OS X/.test(a)?"NFCDIE-04-"`);
             // Add Audio Format Description
             text = text.replace(`displayName:a.ZX`, `displayName:a.ZX+" - "+a.channelsFormat`);
             // Add async to this function so we can await in the next part.
