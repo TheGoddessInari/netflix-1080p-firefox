@@ -1,8 +1,6 @@
 // From EME Logger extension
 
 urls = [
-    'aes.js', // https://cdn.rawgit.com/ricmoo/aes-js/master/index.js
-    'sha.js', // https://cdn.rawgit.com/Caligatio/jsSHA/master/dist/sha.js
     'netflix_max_bitrate.js',
 ];
 
