@@ -23,8 +23,6 @@
     "open_in_tab": false
   },
   "web_accessible_resources": [
-    "get_manifest.js",
-    "msl_client.js",
     "netflix_max_bitrate.js",
     "cadmium-playercore.js"
   ],
