@@ -6,9 +6,11 @@ function save_options(e) {
     e.preventDefault();
     var use6Channels = document.getElementById('5.1').checked;
     var setMaxBitrate = document.getElementById('setMaxBitrate').checked;
+    var useVP9 = document.getElementById('useVP9').checked;
     browser.storage.sync.set({
         use6Channels: use6Channels,
-        setMaxBitrate: setMaxBitrate
+        setMaxBitrate: setMaxBitrate,
+        useVP9: useVP9
     }).then(() => {
         var status = document.getElementById('status');
         status.textContent = 'Options saved.';
@@ -22,10 +24,12 @@ function save_options(e) {
 function restore_options() {
     browser.storage.sync.get({
         use6Channels: false,
-        setMaxBitrate: false
+        setMaxBitrate: false,
+        useVP9: true
     }).then(result => {
         document.getElementById('5.1').checked = result.use6Channels;
         document.getElementById('setMaxBitrate').checked = result.setMaxBitrate;
+        document.getElementById('useVP9').checked = result.useVP9;
         return;
     }).catch(onError);
 
