@@ -52,6 +52,6 @@ browser.webRequest.onBeforeRequest.addListener(
     urls: [
       "*://assets.nflxext.com/*/ffe/player/html/*",
       "*://www.assets.nflxext.com/*/ffe/player/html/*"
-    ]
+    ], types: ["script"]
   }, ["blocking"]
 );
