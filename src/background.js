@@ -28,9 +28,11 @@ browser.webRequest.onBeforeRequest.addListener(
     let encoder = new TextEncoder();
 
     filter.onstop = event => {
-      fetch(browser.extension.getURL("cadmium-playercore.js")).
-        then(response => response.text()).
-        then(text => {
+      fetch(browser.extension.getURL("cadmium-playercore.js"), {
+        headers: { "cache-control": "no-cache" }
+      })
+        .then(response => response.text())
+        .then(text => {
           // Version 0.0024.489.050 from https://assets.nflxext.com/en_us/ffe/player/html/cadmium-playercore-0.0024.489.050.js
           if (text.includes(`this.version="0.0024.489.050";`)) {
             // Use our profile list
