@@ -33,14 +33,14 @@ browser.webRequest.onBeforeRequest.addListener(
       })
         .then(response => response.text())
         .then(text => {
-          // Version 0.0024.489.050 from https://assets.nflxext.com/en_us/ffe/player/html/cadmium-playercore-0.0024.489.050.js
-          if (text.includes(`this.version="0.0024.489.050";`)) {
+          // Version 6.0026.945.051 from https://assets.nflxext.com/en_us/ffe/player/html/cadmium-playercore-6.0026.945.051.js
+          if (text.includes(`this.version="6.0026.945.051";`)) {
             // Use our profile list
-            text = text.replace(`x={type:"standard",viewableId:h,profiles:r,`, `profiles=${base_profiles},profiles.push(...${avc_profiles}),use6Channels&&profiles.push("heaac-5.1-dash"),useVP9&&profiles.push(...${vp9_profiles}),x={type:"standard",viewableId:h,profiles:profiles,`);
+            text = text.replace(`t={type:"standard",viewableId:n,profiles:g,`, `profiles=${base_profiles},profiles.push(...${avc_profiles}),use6Channels&&profiles.push("heaac-5.1-dash"),useVP9&&profiles.push(...${vp9_profiles}),t={type:"standard",viewableId:n,profiles:profiles,`);
             // Re-enable Ctrl-Shift-S menu
-            text = text.replace(`this.uZ.Pha&&this.toggle()`, `this.toggle();`);
+            text = text.replace(`this.L0.hla && this.toggle();`, `this.toggle();`);
             // Add Audio Format Description
-            text = text.replace(`displayName:a.E_`, `displayName:a.E_+" - "+a.channelsFormat`);
+            text = text.replace(`displayName:a.displayName`, `displayName:a.displayName+" - "+a.channelsFormat`);
           }
           filter.write(encoder.encode(text));
           filter.close();
