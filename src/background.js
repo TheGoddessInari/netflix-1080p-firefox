@@ -40,7 +40,7 @@ browser.webRequest.onBeforeRequest.addListener(
             // Re-enable Ctrl-Shift-S menu
             text = text.replace(`this.L0.hla && this.toggle();`, `this.toggle();`);
             // Add Audio Format Description
-            text = text.replace(`displayName:a.displayName`, `displayName:a.displayName+" - "+a.channelsFormat`);
+            text = text.replace(`displayName:a.displayName`, `displayName:a.displayName+ ("Jp" in a ? " - "+a.Jp : "")`);
           }
           filter.write(encoder.encode(text));
           filter.close();
