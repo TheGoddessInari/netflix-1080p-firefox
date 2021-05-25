@@ -40,16 +40,16 @@ browser.webRequest.onBeforeRequest.addListener(
       })
         .then(response => response.text())
         .then(text => {
-          // Version 6.0029.052.051 from https://assets.nflxext.com/en_us/ffe/player/html/cadmium-playercore-6.0029.052.051.js
-          if (text.includes(`this.version="6.0029.052.051";`)) {
+          // Version 6.0030.553.911 from https://assets.nflxext.com/en_us/ffe/player/html/cadmium-playercore-6.0030.553.911.js
+          if (text.includes(`return {version:"6.0030.553.911",`)) {
             // Use our profile lists
-            text = text.replace(`r={type:"standard",viewableId:n,profiles:g,`, `profiles=[];profiles.push(...${audio_profiles});use6Channels&&profiles.push(...["heaac-5.1-dash"]);profiles.push(...${avc_main_profiles});profiles.push(...${avc_high_profiles});useVP9&&profiles.push(...${vp9_profiles});profiles.push(...${base_profiles});r={type:"standard",viewableId:n,profiles:profiles,`);
+            text = text.replace(`P={type:"standard",viewableId:J,profiles:L,`, `profiles=[];profiles.push(...${audio_profiles});use6Channels&&profiles.push(...["heaac-5.1-dash"]);profiles.push(...${avc_main_profiles});profiles.push(...${avc_high_profiles});useVP9&&profiles.push(...${vp9_profiles});profiles.push(...${base_profiles});P={type:"standard",viewableId:J,profiles:profiles,`);
             // Use our profiles in the profile group
-            text = text.replace(`r.profileGroups=[{name:"default",profiles:g}],`, `r.profileGroups=[{name:"default",profiles:profiles}],`);
+            text = text.replace(`P.profileGroups=[{name:"default",profiles:L}],`, `P.profileGroups=[{name:"default",profiles:profiles}],`);
             // Re-enable Ctrl-Shift-S menu
-            text = text.replace(`this.o2.Jma && this.toggle();`, `this.toggle();`);
+            text = text.replace(`this.K2.qla && this.toggle();`, `this.toggle();`);
             // Add Audio Format Description
-            text = text.replace(`displayName:a.displayName`, `displayName:a.displayName+ ("Lr" in a ? " - "+a.Lr : "")`);
+            text = text.replace(`displayName:k.displayName`, `displayName:k.displayName+ ("channels" in k ? " - "+k.channels : "")`);
           }
           filter.write(encoder.encode(text));
           filter.close();
@@ -62,7 +62,7 @@ browser.webRequest.onBeforeRequest.addListener(
   }, {
     urls: [
       "*://assets.nflxext.com/*/ffe/player/html/*",
-      "*://www.assets.nflxext.com/*/ffe/player/html/*"
+      "*://*.a.nflxso.net/sec/*/ffe/player/html/*"
     ], types: ["script"]
   }, ["blocking"]
 );
