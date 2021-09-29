@@ -40,16 +40,16 @@ browser.webRequest.onBeforeRequest.addListener(
       })
         .then(response => response.text())
         .then(text => {
-          // Version 6.0030.553.911 from https://assets.nflxext.com/en_us/ffe/player/html/cadmium-playercore-6.0030.553.911.js
-          if (text.includes(`return {version:"6.0030.553.911",`)) {
+          // Version 6.0032.428.911 from https://assets.nflxext.com/en_us/ffe/player/html/cadmium-playercore-6.0032.428.911.js
+          if (text.includes(`return {version:"6.0032.428.911",`)) {
             // Use our profile lists
-            text = text.replace(`P={type:"standard",viewableId:J,profiles:L,`, `profiles=[];profiles.push(...${audio_profiles});use6Channels&&profiles.push(...["heaac-5.1-dash"]);profiles.push(...${avc_main_profiles});profiles.push(...${avc_high_profiles});useVP9&&profiles.push(...${vp9_profiles});profiles.push(...${base_profiles});P={type:"standard",viewableId:J,profiles:profiles,`);
+            text = text.replace(`S={type:"standard",manifestVersion:A.Lh.CRa?"v2":"v1",viewableId:K,profiles:M`, `profiles=[];profiles.push(...${audio_profiles});use6Channels&&profiles.push(...["heaac-5.1-dash"]);profiles.push(...${avc_main_profiles});profiles.push(...${avc_high_profiles});useVP9&&profiles.push(...${vp9_profiles});profiles.push(...${base_profiles});S={type:"standard",manifestVersion:A.Lh.CRa?"v2":"v1",viewableId:K,profiles:profiles`);
             // Use our profiles in the profile group
-            text = text.replace(`P.profileGroups=[{name:"default",profiles:L}],`, `P.profileGroups=[{name:"default",profiles:profiles}],`);
+            text = text.replace(`S.profileGroups=[{name:"default",profiles:M}],`, `S.profileGroups=[{name:"default",profiles:profiles}],`);
             // Re-enable Ctrl-Shift-S menu
-            text = text.replace(`this.K2.qla && this.toggle();`, `this.toggle();`);
+            text = text.replace(`this.N3.yma && this.toggle();`, `this.toggle();`);
             // Add Audio Format Description
-            text = text.replace(`displayName:k.displayName`, `displayName:k.displayName+ ("channels" in k ? " - "+k.channels : "")`);
+            text = text.replace(`displayName:m.displayName`, `displayName:m.displayName+ ("channels" in m ? " - "+m.channels : "")`);
           }
           filter.write(encoder.encode(text));
           filter.close();
