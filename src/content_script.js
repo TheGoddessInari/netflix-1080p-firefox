@@ -2,7 +2,7 @@
 
 
 // very messy workaround for accessing browser's storage outside of background / content scripts
-browser.storage.sync.get({
+browser.storage.local.get({
     use6Channels: false,
     setMaxBitrate: false,
     useVP9: true

@@ -7,7 +7,7 @@ function save_options(e) {
     var use6Channels = document.getElementById('5.1').checked;
     var setMaxBitrate = document.getElementById('setMaxBitrate').checked;
     var useVP9 = document.getElementById('useVP9').checked;
-    browser.storage.sync.set({
+    browser.storage.local.set({
         use6Channels: use6Channels,
         setMaxBitrate: setMaxBitrate,
         useVP9: useVP9
@@ -22,7 +22,7 @@ function save_options(e) {
 }
 
 function restore_options() {
-    browser.storage.sync.get({
+    browser.storage.local.get({
         use6Channels: false,
         setMaxBitrate: false,
         useVP9: true
