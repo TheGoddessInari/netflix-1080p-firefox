@@ -50,6 +50,8 @@ browser.webRequest.onBeforeRequest.addListener(
             text = text.replace(`this.N3.Fma && this.toggle();`, `this.toggle();`);
             // Add Audio Format Description
             text = text.replace(`displayName:k.displayName`, `displayName:k.displayName+ ("channels" in k ? " - "+k.channels : "")`);
+            // Add max_bitrate logic
+            text = text.replace(`:this.setMediaKeys(p);}`, `:this.setMediaKeys(p),setMaxBitrate&&(console.info("Attempting to set max bitrate:"),fnSetMaxBitrate()?console.info("max bitrate set"):console.error("failed to set max bitrate"));}`)
           }
           filter.write(encoder.encode(text));
           filter.close();
