@@ -6,6 +6,7 @@ const base_profiles = JSON.stringify([
   "dfxp-ls-sdh",
   "simplesdh",
   "nflx-cmisc",
+  "imsc1.1",
   "BIF240",
   "BIF320",
 ]);
