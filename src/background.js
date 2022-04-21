@@ -36,7 +36,7 @@ browser.webRequest.onBeforeRequest.addListener(
     let encoder = new TextEncoder();
 
     filter.onstart = event => {
-      fetch(browser.extension.getURL("cadmium-playercore.js"), {
+      fetch(browser.runtime.getURL("cadmium-playercore.js"), {
         cache: "no-store"
       })
         .then(response => response.text())

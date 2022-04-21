@@ -21,7 +21,7 @@ browser.storage.local.get({
     document.documentElement.appendChild(main_script);
 
     for (const include_url of include_urls) {
-        const secondary_url = browser.extension.getURL(include_url);
+        const secondary_url = browser.runtime.getURL(include_url);
 
         const include_xhr = new XMLHttpRequest();
         include_xhr.open('GET', secondary_url, true);
